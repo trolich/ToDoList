@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#000000</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="meetingHigh">#0d2f66</color>
+    <color name="meetingMed">#13479c</color>
+    <color name="meetingLow">#1968e6</color>
+    <color name="homeworkHigh">#0d706a</color>
+    <color name="homeworkMed">#19a89f</color>
+    <color name="homeworkLow">#22e3d6</color>
+    <color name="shoppingHigh">#126e22</color>
+    <color name="shoppingMed">#1ca335</color>
+    <color name="shoppingLow">#27d647</color>
+    <color name="workoutHigh">#38156e</color>
+    <color name="workoutMed">#4a1a91</color>
+    <color name="workoutLow">#6e27d9</color>
+    <color name="choresHigh">#6e0f0f</color>
+    <color name="choresMed">#a31515</color>
+    <color name="choresLow">#cf1d1d</color>
+</resources>
