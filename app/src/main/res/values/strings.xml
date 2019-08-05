@@ -97,5 +97,6 @@
         <item>Chores</item>
     </string-array>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_metting_details">MettingDetailsActivity</string>
+    <string name="title_activity_meeting_details">MeetingDetailsActivity</string>
+    <string name="title_activity_shopping_details">ShoppingDetailsActivity</string>
 </resources>

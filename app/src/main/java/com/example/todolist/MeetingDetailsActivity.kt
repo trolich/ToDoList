@@ -29,11 +29,14 @@ class MeetingDetailsActivity : AppCompatActivity() {
 
         val nameText : EditText = findViewById(R.id.meetingWhoEditText)
         val addressText : EditText = findViewById(R.id.meetingAddressEditText)
-        val timeText : EditText = findViewById(R.id.meetingTimeEditText)
-        val dateText : EditText = findViewById(R.id.meetingDateEditText)
+        val timeText : TextView = findViewById(R.id.meetingTimeTextView)
+        val dateText : TextView = findViewById(R.id.meetingDateTextView)
         val phoneText : EditText = findViewById(R.id.meetingPhoneEditText)
         val emailText : EditText = findViewById(R.id.meetingEmailEditText)
         val notesText : EditText = findViewById(R.id.meetingNotesEditText)
+
+        var time: String
+        var date: String
 
 
         //if entry already exists, load the current information in the edit text views
@@ -52,8 +55,8 @@ class MeetingDetailsActivity : AppCompatActivity() {
             // Grab all the current values
             val name: String = nameText.text.toString()
             val address: String = addressText.text.toString()
-            val time: String = timeText.text.toString()
-            val date: String = dateText.text.toString()
+            time = timeText.text.toString()
+            date = dateText.text.toString()
             val phone: String = phoneText.text.toString()
             val email: String = emailText.text.toString()
             val notes: String = notesText.text.toString()
@@ -61,12 +64,12 @@ class MeetingDetailsActivity : AppCompatActivity() {
             addDetails(id, name, address, time, date, phone, email, notes)
         }
 
-        meetingTimeEditText.setOnClickListener{
+        meetingTimeTextView.setOnClickListener{
             TimePickerFragment().show(supportFragmentManager, "Meeting Time")
         }
     }
 
-    private fun load(id : Long, name : String, nameText : EditText, addressText : EditText, timeText : EditText, dateText : EditText,
+    private fun load(id : Long, name : String, nameText : EditText, addressText : EditText, timeText : TextView, dateText : TextView,
                      phoneText : EditText, emailText : EditText, notesText : EditText) {
         toolbar.title = name
         val entry = ToDoContract.MeetingEntry
@@ -95,8 +98,8 @@ class MeetingDetailsActivity : AppCompatActivity() {
             while (cursor.moveToNext()) {
                 nameText.setText(cursor.getString(cursor.getColumnIndex(entry.COLUMN_NAME_NAME)))
                 addressText.setText(cursor.getString(cursor.getColumnIndex(entry.COLUMN_NAME_ADDRESS)))
-                timeText.setText(cursor.getString(cursor.getColumnIndex(entry.COLUMN_NAME_TIME)))
-                dateText.setText(cursor.getString(cursor.getColumnIndex(entry.COLUMN_NAME_DATE)))
+                timeText.text = (cursor.getString(cursor.getColumnIndex(entry.COLUMN_NAME_TIME)))
+                dateText.text = (cursor.getString(cursor.getColumnIndex(entry.COLUMN_NAME_DATE)))
                 emailText.setText(cursor.getString(cursor.getColumnIndex(entry.COLUMN_NAME_EMAIL)))
                 phoneText.setText(cursor.getString(cursor.getColumnIndex(entry.COLUMN_NAME_PHONE)))
                 notesText.setText(cursor.getString(cursor.getColumnIndex(entry.COLUMN_NAME_NOTES)))
@@ -174,8 +177,13 @@ class MeetingDetailsActivity : AppCompatActivity() {
         }
 
         override fun onTimeSet(view: TimePicker?, hourOfDay: Int, minute: Int) {
-            val text = "$hourOfDay : $minute"
-            activity?.meetingTimeEditText?.setText(text)
+            val text = when
+            {
+                hourOfDay<12 -> "$hourOfDay : $minute am"
+                hourOfDay>=12 -> "${hourOfDay-12} : $minute pm"
+                else -> "Not a valid time"
+            }
+            activity?.meetingTimeTextView?.text = text
             //Toast.makeText(activity, "The time set is $hourOfDay : $minute", Toast.LENGTH_SHORT).show()
         }
 

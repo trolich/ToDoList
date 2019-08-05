@@ -10,8 +10,13 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
         <activity
+                android:name=".ShoppingDetailsActivity"
+                android:label="@string/title_activity_shopping_details"
+                android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
                 android:name=".MeetingDetailsActivity"
-                android:label="@string/title_activity_metting_details"
+                android:label="@string/title_activity_meeting_details"
                 android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity android:name=".NewToDoActivity">

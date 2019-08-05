@@ -41,25 +41,6 @@
             android:layout_marginTop="32dp"
             app:layout_constraintTop_toBottomOf="@+id/whenTextView"/>
     <EditText
-            android:layout_width="85dp"
-            android:layout_height="38dp"
-            android:inputType="time"
-            android:ems="10"
-            android:id="@+id/meetingTimeEditText" app:layout_constraintStart_toEndOf="@+id/whenTextView"
-            app:layout_constraintTop_toTopOf="@+id/whenTextView"
-            app:layout_constraintBottom_toBottomOf="@+id/whenTextView" android:layout_marginStart="24dp"
-            android:hint="Time"/>
-    <EditText
-            android:layout_width="118dp"
-            android:layout_height="43dp"
-            android:inputType="date"
-            android:ems="10"
-            android:id="@+id/meetingDateEditText"
-            app:layout_constraintTop_toTopOf="@+id/meetingTimeEditText"
-            app:layout_constraintBottom_toBottomOf="@+id/meetingTimeEditText"
-            app:layout_constraintStart_toEndOf="@+id/meetingTimeEditText" android:layout_marginStart="16dp"
-            android:hint="Date"/>
-    <EditText
             android:layout_width="241dp"
             android:layout_height="42dp"
             android:inputType="textPostalAddress"
@@ -132,4 +113,21 @@
             android:id="@+id/addMeetingDetailsButton" app:layout_constraintBottom_toBottomOf="parent" android:layout_marginStart="8dp"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp" android:layout_marginBottom="24dp"/>
+    <TextView
+            android:text="12:30pm"
+            android:textSize="18sp"
+            android:layout_width="106dp"
+            android:layout_height="32dp"
+            android:id="@+id/meetingTimeTextView"
+            app:layout_constraintTop_toTopOf="@+id/whenTextView"
+            app:layout_constraintBottom_toBottomOf="@+id/whenTextView"
+            app:layout_constraintStart_toStartOf="@+id/meetingAddressEditText"/>
+    <TextView
+            android:text="08/05/2019"
+            android:textSize="18sp"
+            android:layout_width="116dp"
+            android:layout_height="32dp"
+            android:id="@+id/meetingDateTextView"
+            app:layout_constraintTop_toTopOf="@+id/meetingTimeTextView" app:layout_constraintBottom_toBottomOf="@+id/meetingTimeTextView"
+            app:layout_constraintStart_toEndOf="@+id/meetingTimeTextView" android:layout_marginStart="16dp"/>
 </android.support.constraint.ConstraintLayout>
